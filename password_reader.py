@@ -1,14 +1,22 @@
-# Author: Jacob Gualtieri
-# Date: 2/14/2020
-# Password Reader - Verifies that a password meets requirements
+"""
+Author: Jacob Gualtieri
+Date: 2/14/2020
+Password Reader - Verifies that a password meets requirements
+"""
 
+"""
+Parameters: String password, int min_length
+Determines whether or not the password meets the necessary requirements.
+"""
 def read_password(password, min_length):
+    if (not type(password) is str) or (not type(min_length) is int):
+        raise TypeError("password must be a String, or min_length must be an int")
+
     num_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
     special_char_list = ['!', '@', '#', '$', '%', '&', '*']
     num_count = 0
     special_char_count = 0
-    if (not type(password) is str) or (not type(min_length) is int):
-        raise TypeError("password must be a String, or min_length must be an int")
+
     if len(password) < min_length:
         return "Password must be at least " + str(min_length) + " characters long."
     for char in password:
